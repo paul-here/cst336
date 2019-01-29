@@ -23,17 +23,43 @@ in html
         </header>
         
         <nav>
-            <hr width="50%" /> 
+            <hr width="50%" /> <!-- Should this be outside of nav? tutorial v. lecture-->
             <a href="index.html"> Home </a>
             <a href="about.html"> About </a>
             <a href="contact.html"> Contact </a>
         </nav>
         <br><br>
-        <main>
-            <figure>
-                <img src="img/poodle_dance.jpg" alt="Paul with a poodle."/>
-            </figure>
-        </main>
+        <div id="content">
+            <table>
+                <tr id="table-header">
+                    <td><strong>Programming Languages</strong></td>
+                    <td><strong>Years Experience</strong></td>
+                </tr>
+                <tr id="table-row">
+                    <td>Javascript</td>
+                    <td>3</td>
+                </tr>
+                <tr id="table-row">
+                    <td>Python</td>
+                    <td>2</td>
+                </tr>
+                <tr id="table-row">
+                    <td>Java</td>
+                    <td>2</td>
+                </tr>
+                <tr id="table-row">
+                    <td>C/C++</td>
+                    <td>.2</td>
+                </tr>
+            </table>
+            <ul>
+                <li><span class="hobby">Dungeons & Dragons: </span>Nothing beats the crazy stories from a good campaign!</li>
+                <li><span class="hobby">Surfing: </span>At the expense of getting salty, you can go really fast!</li>
+                <li><span class="hobby">Longboarding: </span>Nothing beats the exhilaration of not dying!</li>
+                <li><span class="hobby">Hiking: </span>There is a trail near my house with really wonderful views!</li>
+            </ul>
+            
+        </div>
         <!-- This is the footer -->
         <!-- The footer goes inside the body but not always -->
         <!--     -->
