@@ -21,14 +21,16 @@ nav a:hover { /*pseudo class*/
     transition: .9s; 
 }
 
-/*
-figure, div {
-    float:left;
+#current {
+    color: orange;
 }
-*/
 
-#me, #welcomeText {
+#me {
     float: left;
+}
+
+#welcomeText {
+    float: right;
 }
 
 footer {
