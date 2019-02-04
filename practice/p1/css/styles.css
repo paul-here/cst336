@@ -1,0 +1,74 @@
+main {
+    
+    justify-content:center;
+}
+
+body {
+    
+    background-color:black;
+}
+
+
+h1 {
+    
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    color: yellow;
+    margin-bottom: 0px;
+}
+
+header{
+    
+    text-align: center;
+}
+
+hr {
+    
+    width: 730px;
+    background-color: white;
+}
+
+
+#spring {
+    
+    border-top-left-radius: 50px;
+}
+
+#summer {
+    
+    border-top-right-radius: 50px;
+}
+
+#fall {
+    
+    border-bottom-left-radius: 50px;
+}
+
+#winter {
+    
+    border-bottom-right-radius: 50px;
+}
+
+
+#toprow, #bottomrow {
+    
+    display: flex;
+    justify-content:center;
+}
+
+.cell {
+    
+    margin: 10px;
+    padding: 10px;
+}
+
+
+#toprow:hover, #bottomrow:hover {
+    transition-delay: .5s;
+    transform: scale(1.07);
+}
+
+.cell:hover {
+    transition-delay: .5s;
+    transform: scale(1.12);
+}
