@@ -11,7 +11,7 @@ header, nav, footer {
 
 header {
     background-color: #f4ffea;
-    font-size: 2em;
+    font-size: 1.8em;
     height: 100px;
 }
 
@@ -32,7 +32,6 @@ main {
 
 h1 {
     font-family: 'Ultra', serif;
-    font-size: 3em;
 }
 
 a {
