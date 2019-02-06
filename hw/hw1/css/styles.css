@@ -19,6 +19,7 @@ header {
     background-color: #f4ffea;
     font-size: 1.8em;
     height: 100px;
+    text-shadow: 6px 6px 2px white;
 }
 
 body {
