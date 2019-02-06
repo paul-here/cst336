@@ -5,6 +5,12 @@ header, nav, footer {
     vertical-align: middle;
 }
 
+/*
+div {
+    border: solid red;
+}
+*/
+
 #navspace {
     height: 60px;
 }
@@ -43,6 +49,15 @@ nav a {                      /*Anchors in the Nav*/
     padding:15px;
     font-size:1.6em;
     text-decoration: none;   /*remove underline*/
+}
+
+figure {
+    float: right;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 15px;
+    margin-left: 10px
 }
 
 #current {
