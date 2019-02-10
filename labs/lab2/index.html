@@ -27,6 +27,8 @@
                 var guessSubmit = document.querySelector('.guessSubmit');
                 var guessField = document.querySelector('.guessField');
 
+                var lossNum = 0;
+                var winNum = 0;
                 var guessCount = 1;
                 var resetButton = document.querySelector('#reset');
                 resetButton.style.display = 'none';
@@ -52,6 +54,7 @@
                         lastResult.style.backgroundColor = 'green';
                         $('#lowOrHi').html('');
                         // lowOrHi.innerHTML = '';
+                        winNum++;
                         setGameOver();
 
                     } else if(userGuess > 99 || userGuess < 1){
@@ -67,6 +70,7 @@
 
                         lastResult.innerHTML = 'Sorry, you lost!';
                         setGameOver();
+                        lossNum++;
 
                     } else {
 
@@ -111,6 +115,9 @@
 
                         resetParas[i].textContent = '';
                     }
+                    
+                    $('#wins').html(winNum);
+                    $('#losses').html(lossNum);
 
                     resetButton.style.display = 'none';
 
@@ -145,7 +152,10 @@
             <p id="lastResult"></p>
             <p id="lowOrHi"></p>
             <button id="reset">Reset</button>
-
+            <br><br>
+            <div>
+                Wins: <span id="wins">0</span> Losses: <span id="losses">0</span>
+            </div>
         </div>
     </body>
 </html>
