@@ -3,6 +3,8 @@
     <head>
         <title> Guess a Number </title>
         <meta charset="utf-8" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--Bootstrap files-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         
@@ -13,6 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript">
 
+            /*global $*/
             $(document).ready(function(){
     
                 // My JS code here...
@@ -21,11 +24,8 @@
                 var lastResult = document.querySelector('#lastResult');
                 var lowOrHi = document.querySelector('#lowOrHi');
 
-                //var guessSubmit = $(".guessSubmit");
-                //var guessField = $('.guessField');
                 var guessSubmit = document.querySelector('.guessSubmit');
                 var guessField = document.querySelector('.guessField');
-
 
                 var guessCount = 1;
                 var resetButton = document.querySelector('#reset');
@@ -33,22 +33,36 @@
 
                 function checkGuess() {
 
-                    var userGuess = Number(guessField.value);
+                    var userGuess = Number(guessField.value); 
 
                     if(guessCount === 1) {
 
-                    guesses.innerHTML = 'Previous guesses: ';
+                        // JQuery line 3
+                        $('#guesses').html('Previous guesses: ');
+                        // guesses.innerHTML = 'Previous guesses: ';
                     }
 
                     guesses.innerHTML += ' ';
 
                     if(userGuess === randomNumber) {
 
-                        lastResult.innerHTML = 'Congratulations! You got it right!';
+                        // JQuery lines 4 and 5
+                        $('#lastResult').html('Congratulations! You got it right!');
+                        // lastResult.innerHTML = 'Congratulations! You got it right!';
                         lastResult.style.backgroundColor = 'green';
-                        lowOrHi.innerHTML = '';
+                        $('#lowOrHi').html('');
+                        // lowOrHi.innerHTML = '';
                         setGameOver();
 
+                    } else if(userGuess > 99 || userGuess < 1){
+                        
+                        // JQuery line 2
+                        $('#lastResult').html('Number must be between 1 and 99!');
+                        lastResult.style.backgroundColor = 'red';
+                        guessCount--;
+                        guessField.value = '';
+                        guessField.focus();
+                        
                     } else if(guessCount === 7) {
 
                         lastResult.innerHTML = 'Sorry, you lost!';
