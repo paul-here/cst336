@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<!--
+First Website
+and comment
+in html
+(comments can span multiple lines)
+-->
+
+<!-- This is the head -->
+<!-- All styles and javascript go inside the head -->
+    <head>
+      <meta charset="utf-8"/>
+      <title>Lab 3: Geography Quiz</title>
+      <link rel="stylesheet" href="css/styles.css" type="text/css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>US Geography Quiz</h1>
+        </header>
+        <main>
+        <!-- Question 1 -->
+        <h2>What is the capital of California?</h2>
+        <input type="text" id="q1">
+        <div id="q1_f"></div>
+        <!-- Question 2 -->
+        <h2>What is the longest US river?</h2>
+        <select>
+            <option>Select One</option>
+            <option>Mississippi</option>
+            <option>Missouri</option>
+            <option>Colorado</option>
+            <option>Delaware</option>
+        </select>
+        <div id="q2_f"></div>
+        <!-- Question 3 -->
+        <h2>What is the smallest US State?</h2>
+        <input type="radio" name="radioq3" id="maine"><label for="maine">Maine</label> 
+        <input type="radio" name="radioq3" id="ri"><label for="ri">Rhode Island</label>
+        <input type="radio" name="radioq3" id="maryland"><label for="maryland">Maryland</label>
+        <input type="radio" name="radioq3" id="delaware"><label for="delaware">Delaware</label>
+        <div id="q3_f"></div>
+        <!-- Question 4 -->
+        <h2></h2>
+        <div id="q4_f"></div>
+        <!-- Question 5 -->
+        <h2></h2>
+        <div id="q5_f"></div>
+        <!-- End of Questions -->
+        <h2 id="totPoints"></h2>
+        <br>
+        <button id="subBut"> Submit </button>
+        </main>
+        <script>
+            /* global $ */
+            let point_val = 25;
+            
+            let q1_ans = "sacremento";
+            
+            let total_points = 0;
+            
+            $("#subBut").on("click", function() {
+               
+               
+               let q1_resp = $("#q1").val().toLowerCase();
+               
+               if(q1_resp == q1_ans){
+                   $("#q1_f").html("Correct!");
+                   total_points += 25;
+                   alert(total_points);
+               }else{
+                   $("#q1_f").html("Incorrect!");
+               }
+               
+                
+            });
+            
+        </script>
+    </body>
+</html>
