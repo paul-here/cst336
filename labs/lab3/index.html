@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
     <title> US Geography Quiz </title>
     <!--Bootstrap files-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -10,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
     <h1>US Geography Quiz</h1>
     <!--Question 1-->
@@ -40,7 +40,7 @@
     <input type="radio" name="q3" id="maryland" value="Maryland"><label for="maryland"> Maryland</label>
     <input type="radio" name="q3" id="delaware" value="Delaware"><label for="delaware"> Delaware</label>
     <div id="q3_feedback"></div>
-    <br></br>
+    <br>
     <!--Question 4-->
     <h2><span id="markImg4"></span> What presidents are carved into mount Rushmore?</h2>
     <input type="checkbox" id="Jackson"><label for="Jackson"> A.Jackson</label>
@@ -61,161 +61,160 @@
     <h2 id="congrats" class="correct"></h2>
     <h2 id="totalTimes"></h2>
     <h3 id="prevScores"></h3>
-</body>
 
-<script>
-    /* global $ */
-    /* global localStorage */
+    <script>
+        /* global $ */
+        /* global localStorage */
 
-    let pointValue = 20;
+        let pointValue = 20;
 
-    let q1_answer = "sacramento";
-    let q2_answer = "Missouri";
-    let q3_answer = "Rhode Island";
-    let q5_answer = "seal2";
-    let q5_response = "";
-    let totalTimes = localStorage.getItem("totalTimesTaken");
-    let scoresArray = localStorage.getItem("scoreHistory");
-    if (scoresArray == null) {
-        scoresArray = [];
-    }
-    else {
-        scoresArray = scoresArray.split(","); //creates array from a string
-    }
-
-    $(".active").on("click", function() {
-        $(".active").css("background", "");
-        $(this).css("background-color", "#fff8e0");
-        q5_response = $(this).attr("id");
-        
-    });
-
-    function isFormValid() {
-        let isValid = true;
-        if ($("#q1").val() == "") {
-            $("#validSubmission").html("Question 1 not answered");
-            return false;
-        }
-        if ($("#q2").val() == "") {
-            $("#validSubmission").html("Question 2 not answered");
-            return false;
-        }
-        if ($("input[name=q3]:checked").val() == undefined) {
-            $("#validSubmission").html("Question 3 not answered");
-            return false;
-        }
-        if (!$("#Jefferson").is(":checked") &&
-            !$("#Roosevelt").is(":checked") &&
-            !$("#Jackson").is(":checked") &&
-            !$("#Franklin").is(":checked")) {
-            $("#validSubmission").html("Question 4 not answered");
-            return false;
-        }
-        if (q5_response == "") {
-            $("#validSubmission").html("Question 5 not answered");
-            return false;
-        }
-
-        return isValid;
-    }
-
-    $("#submitButton").on("click", function() {
-
-        $("#validSubmission").html("");
-        $("#congrats").html("");
-
-        if (!isFormValid()) { //isFormValid == false
-            return;
-        }
-
-        let total_points = 0;
-
-        let q1_response = $("#q1").val().toLowerCase();
-        let q2_response = $("#q2").val();
-        let q3_response = $("input[name=q3]:checked").val();
-
-        //Question 1
-        if (q1_response == q1_answer) {
-            $("#q1_feedback").html("Correct!");
-            total_points += pointValue;
-            $("#markImg1").html("<img src ='img/checkmark.png' alt='checkmark'>");
-            $("#q1_feedback").attr("class", "correct");
+        let q1_answer = "sacramento";
+        let q2_answer = "Missouri";
+        let q3_answer = "Rhode Island";
+        let q5_answer = "seal2";
+        let q5_response = "";
+        let totalTimes = localStorage.getItem("totalTimesTaken");
+        let scoresArray = localStorage.getItem("scoreHistory");
+        if (scoresArray == null) {
+            scoresArray = [];
         }
         else {
-            $("#q1_feedback").html("Incorrect!");
-            $("#markImg1").html("<img src ='img/xmark.png' alt='xmark'>");
-            $("#q1_feedback").attr("class", "incorrect");
+            scoresArray = scoresArray.split(","); //creates array from a string
         }
 
-        //Question 2
-        if (q2_response == q2_answer) {
-            $("#q2_feedback").html("Correct!");
-            total_points += pointValue;
-            $("#markImg2").html("<img src ='img/checkmark.png' alt='checkmark'>");
-            $("#q2_feedback").attr("class", "correct");
-        }
-        else {
-            $("#q2_feedback").html("Incorrect!");
-            $("#markImg2").html("<img src ='img/xmark.png' alt='xmark'>");
-            $("#q2_feedback").attr("class", "incorrect");
-        }
+        $(".active").on("click", function() {
+            $(".active").css("background", "");
+            $(this).css("background-color", "#fff8e0");
+            q5_response = $(this).attr("id");
 
-        //Question 3
-        if (q3_response == q3_answer) {
-            $("#q3_feedback").html("Correct!");
-            total_points += pointValue;
-            $("#markImg3").html("<img src ='img/checkmark.png' alt='checkmark'>");
-            $("#q3_feedback").attr("class", "correct");
-        }
-        else {
-            $("#q3_feedback").html("Incorrect!");
-            $("#markImg3").html("<img src ='img/xmark.png' alt='xmark'>");
-            $("#q3_feedback").attr("class", "incorrect");
-        }
-
-        //Question 4
-        if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
-            $("#q4_feedback").html("Correct");
-            total_points += pointValue;
-            $("#markImg4").html("<img src ='img/checkmark.png' alt='checkmark'>");
-            $("#q4_feedback").attr("class", "correct");
-        }
-        else {
-            $("#q4_feedback").html("Incorrect");
-            $("#markImg4").html("<img src ='img/xmark.png' alt='xmark'>");
-            $("#q4_feedback").attr("class", "incorrect");
-        }
-
-        //Question 5
-        if (q5_response == q5_answer) {
-            $("#q5_feedback").html("Correct");
-            total_points += pointValue;
-            $("#markImg5").html("<img src ='img/checkmark.png' alt='checkmark'>");
-            $("#q5_feedback").attr("class", "correct");
-        }
-        else {
-            $("#q5_feedback").html("Incorrect");
-            $("#markImg5").html("<img src ='img/xmark.png' alt='xmark'>");
-            $("#q5_feedback").attr("class", "incorrect");
-        }
-
-        //Totals    
-        $("#total").html("The total Score is: " + total_points);
-        if(total_points == 100){
-            $("#congrats").html("Congratulations! You got 100%!");
-        }
-        totalTimes++;
-        localStorage.setItem("totalTimesTaken", totalTimes);
-        $("#totalTimes").html("Quiz taken: " + totalTimes + " time(s)");
-        scoresArray.push(total_points);
-        $("#prevScores").html("Score History: ");
-        scoresArray.forEach(function(score) {
-            $("#prevScores").append(score + " ");
         });
 
-        localStorage.setItem("scoreHistory", scoresArray);
+        function isFormValid() {
+            let isValid = true;
+            if ($("#q1").val() == "") {
+                $("#validSubmission").html("Question 1 not answered");
+                return false;
+            }
+            if ($("#q2").val() == "") {
+                $("#validSubmission").html("Question 2 not answered");
+                return false;
+            }
+            if ($("input[name=q3]:checked").val() == undefined) {
+                $("#validSubmission").html("Question 3 not answered");
+                return false;
+            }
+            if (!$("#Jefferson").is(":checked") &&
+                !$("#Roosevelt").is(":checked") &&
+                !$("#Jackson").is(":checked") &&
+                !$("#Franklin").is(":checked")) {
+                $("#validSubmission").html("Question 4 not answered");
+                return false;
+            }
+            if (q5_response == "") {
+                $("#validSubmission").html("Question 5 not answered");
+                return false;
+            }
 
-    });
-</script>
+            return isValid;
+        }
 
+        $("#submitButton").on("click", function() {
+
+            $("#validSubmission").html("");
+            $("#congrats").html("");
+
+            if (!isFormValid()) { //isFormValid == false
+                return;
+            }
+
+            let total_points = 0;
+
+            let q1_response = $("#q1").val().toLowerCase();
+            let q2_response = $("#q2").val();
+            let q3_response = $("input[name=q3]:checked").val();
+
+            //Question 1
+            if (q1_response == q1_answer) {
+                $("#q1_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg1").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q1_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q1_feedback").html("Incorrect!");
+                $("#markImg1").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q1_feedback").attr("class", "incorrect");
+            }
+
+            //Question 2
+            if (q2_response == q2_answer) {
+                $("#q2_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg2").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q2_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q2_feedback").html("Incorrect!");
+                $("#markImg2").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q2_feedback").attr("class", "incorrect");
+            }
+
+            //Question 3
+            if (q3_response == q3_answer) {
+                $("#q3_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg3").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q3_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q3_feedback").html("Incorrect!");
+                $("#markImg3").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q3_feedback").attr("class", "incorrect");
+            }
+
+            //Question 4
+            if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
+                $("#q4_feedback").html("Correct");
+                total_points += pointValue;
+                $("#markImg4").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q4_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q4_feedback").html("Incorrect");
+                $("#markImg4").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q4_feedback").attr("class", "incorrect");
+            }
+
+            //Question 5
+            if (q5_response == q5_answer) {
+                $("#q5_feedback").html("Correct");
+                total_points += pointValue;
+                $("#markImg5").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q5_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q5_feedback").html("Incorrect");
+                $("#markImg5").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q5_feedback").attr("class", "incorrect");
+            }
+
+            //Totals    
+            $("#total").html("The total Score is: " + total_points);
+            if (total_points == 100) {
+                $("#congrats").html("Congratulations! You got 100%!");
+            }
+            totalTimes++;
+            localStorage.setItem("totalTimesTaken", totalTimes);
+            $("#totalTimes").html("Quiz taken: " + totalTimes + " time(s)");
+            scoresArray.push(total_points);
+            $("#prevScores").html("Score History: ");
+            scoresArray.forEach(function(score) {
+                $("#prevScores").append(score + " ");
+            });
+
+            localStorage.setItem("scoreHistory", scoresArray);
+
+        });
+    </script>
+</body>
 </html>
