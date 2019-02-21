@@ -1,4 +1,33 @@
 body {
     text-align: center;
-    background-color: #C5E6F8;
+    background-color:#e0faff;
+}
+
+.correct {
+    color: green;
+    font-size: 18pt;
+}
+
+.incorrect {
+    color: red;
+    font-size: 18pt;
+}
+
+input[type="radio"] {
+    margin: 6px;
+}
+
+input[type="checkbox"] {
+    margin: 6px;
+}
+
+button {
+    background-color: #ffffff;
+    font-weight: bold;
+    padding: 11px 26px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
