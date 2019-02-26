@@ -1,6 +1,10 @@
 body {
     justify-content: center;
     text-align: center;
+    background-image: url('../../img/vimlogo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 h1 {
