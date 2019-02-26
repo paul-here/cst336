@@ -1,18 +1,24 @@
 body {
     justify-content: center;
     text-align: center;
-    background-image: url('../../img/vimlogo.png');
+    background-image: url('../../../img/vimlogo.png');
+    background-color: #fff;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
 h1 {
-    margin: 40px auto;
+    background-color: #fff;
+    opacity: 0.8;
+    margin: 50px auto;
+    padding: 60px 40px;
 }
 
 
 .card {
+    background-color: #fff;
+    opacity: 0.8;
     margin: 20px auto;
     padding: 10px 30px;
     border-style: inset;
@@ -25,4 +31,8 @@ h1 {
     color: red;
     font-style: italic;
     height: 20px;
+}
+
+#submitButton {
+    opacity: 0.8;
 }
