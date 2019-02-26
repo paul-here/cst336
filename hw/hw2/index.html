@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vim Quiz</title>
+    <!-- JQuery, css file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Vim Commands Quiz</h1>
+    <!-- Question 1 -->
+    <div class="card" id="c1">
+        <h2>QUESTION1</h2>
+        <input type="text" id="q1">
+        <div id="q1_feedback"></div>
+    </div>
+    <!-- Question 2 -->
+    <div class="card" id="c2">
+        <h2>QUESTION2</h2>
+        <select id="q2">
+            <option value="">Select One</option>
+            <option>Mississippi</option>
+            <option>Missouri</option>
+            <option>Colorado</option>
+            <option>Delaware</option>
+        </select>
+        <div id="q2_feedback"></div>
+    </div>
+    <!-- Question 3 -->
+    <div class="card" id="c3">
+        <h2>QUESTION3</h2>
+        <input type="radio" name="q3" id="maine" value="Maine"><label for="maine"> Maine </label>
+        <input type="radio" name="q3" id="ri" value="Rhode Island"><label for="ri"> Rhode Island </label>
+        <input type="radio" name="q3" id="maryland" value="Maryland"><label for="maryland"> Maryland</label>
+        <input type="radio" name="q3" id="delaware" value="Delaware"><label for="delaware"> Delaware</label>
+        <div id="q3_feedback"></div>
+        <br>
+    </div>
+    <!-- Question 4 -->
+    <div class="card" id="c4">
+        <h2>QUESTION4</h2>
+        <input type="checkbox" id="Jackson"><label for="Jackson"> A.Jackson</label>
+        <input type="checkbox" id="Franklin"><label for="Franklin"> B. Franklin</label>
+        <input type="checkbox" id="Jefferson"><label for="Jefferson"> T. Jefferson</label>
+        <input type="checkbox" id="Roosevelt" value="Theodore Roosevelt"><label for="Roosevelt"> T. Roosevelt</label>
+        <div id="q4_feedback"></div>
+    </div>
+    <!-- Question 5 -->
+    <div class="card" id="c5">
+        <h2>QUESTION5</h2>
+        <img src="img/seal1.png" alt="Seal 1" class="active" id="seal1">
+        <img src="img/seal2.png" alt="Seal 2" class="active" id="seal2">
+        <img src="img/seal3.png" alt="Seal 3" class="active" id="seal3">
+        <div id="q5_feedback"></div>
+    </div>
+    <!-- Question 6 -->
+    <div class="card" id="c6">
+        <h2>QUESTION6</h2>
+        <input type="radio" name="q6" id="maine" value="Maine"><label for="maine"> Maine </label>
+        <input type="radio" name="q6" id="ri" value="Rhode Island"><label for="ri"> Rhode Island </label>
+        <input type="radio" name="q6" id="maryland" value="Maryland"><label for="maryland"> Maryland</label>
+        <input type="radio" name="q6" id="delaware" value="Delaware"><label for="delaware"> Delaware</label>
+        <div id="q3_feedback"></div>
+        <br>
+    </div>
+    <h2 id="total">TESTTEXT</h2>
+    <button id="submitButton"> Submit </button>
+    <h2 id="validSubmission"></h2>
+    <h2 id="congrats" class="correct"></h2>
+    <h2 id="totalTimes"></h2>
+    <h3 id="prevScores"></h3>
+
+    <script>
+        /* global $ */
+        /* global localStorage */
+
+        // Queue class from https://www.geeksforgeeks.org/implementation-queue-javascript/
+        class Queue {
+            // Array is used to implement a Queue 
+            constructor() {
+                this.items = [];
+            }
+            enqueue(element) {
+                // adding element to the queue 
+                this.items.push(element);
+            }
+            dequeue() {
+                // removing element from the queue 
+                // returns underflow when called  
+                // on empty queue 
+                if (this.isEmpty())
+                    return "Underflow";
+                return this.items.shift();
+            }
+            isEmpty() {
+                // return true if the queue is empty. 
+                return this.items.length == 0;
+            }
+            // Functions not implemented:
+            // front() 
+            // printQueue() 
+        }
+
+        let displayQueue = new Queue;
+        let activeCard1 = $("#c1");
+        let activeCard2 = $("#c2");
+        displayQueue.enqueue($("#c3"));
+        displayQueue.enqueue($("#c4"));
+        displayQueue.enqueue($("#c5"));
+        displayQueue.enqueue($("#c6"));
+
+        let pointValue = 20;
+        let q1_answer = "sacramento";
+        let q2_answer = "Missouri";
+        let q3_answer = "Rhode Island";
+        let q5_answer = "seal2";
+        let q1_response = "";
+        let q2_response = "";
+        let q3_response = "";
+        let q5_response = "";
+        let q6_response = "";
+        let totalTimes = localStorage.getItem("totalTimesTaken");
+        /*
+        let scoresArray = localStorage.getItem("scoreHistory");
+
+        if (scoresArray == null) {
+            scoresArray = [];
+        }
+        else {
+            scoresArray = scoresArray.split(","); //creates array from a string
+        }
+        
+        */
+
+        $(document).ready(function() {
+
+            activeCard1.css("display", "block");
+            activeCard2.css("display", "block");
+
+        });
+
+/*
+        // This should be removable
+        $(".active").on("click", function() {
+            $(".active").css("background", "");
+            $(this).css("background-color", "#fff8e0");
+            q5_response = $(this).attr("id");
+
+        });
+*/        
+        // Grade Function -- use a isFormValid() type set up, pass cards and grade
+        function isCorrect(card){
+            if(card == $("#c1")){
+                if ($("#q1").val() == "") {
+                    return true;
+                }
+                return false;
+            }
+            if(card == $("#c2")){
+                if ($("#q2").val() == "") {
+                    return true;
+                }
+                return false;
+            }
+            if(card == $("#c3")){
+                if ($("input[name=q3]:checked").val() == undefined) {
+                    return true;
+                }
+                return false;
+            }
+            if(card == $("#c4")){
+                if (!$("#Jefferson").is(":checked") &&
+                    !$("#Roosevelt").is(":checked") &&
+                    !$("#Jackson").is(":checked") &&
+                    !$("#Franklin").is(":checked")) {
+                    return true;
+                }
+                return false;
+            }
+            if(card == $("#c5")){
+                if (q5_response == "") {
+                    return true;
+                }
+                return false;
+            }
+            if(card == $("#c6")){
+                if (q6_response == "") {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        
+        
+        function isFormValid(card) {
+            // Add layers to all like this first one
+            if(card == $("#c1")){
+                if ($("#q1").val() == "") {
+                    // Remove all of these, handle on boolean return
+                    // $("#validSubmission").html("Question 1 not answered");
+                    return false;
+                }
+                return true;
+            }
+            if(card == $("#c2")){
+                if ($("#q2").val() == "") {
+                    // $("#validSubmission").html("Question 2 not answered");
+                    return false;
+                }
+                return true;
+            }
+            if(card == $("#c3")){
+                if ($("input[name=q3]:checked").val() == undefined) {
+                    return false;
+                }
+                return true;
+            }
+            if(card == $("#c4")){
+                if (!$("#Jefferson").is(":checked") &&
+                    !$("#Roosevelt").is(":checked") &&
+                    !$("#Jackson").is(":checked") &&
+                    !$("#Franklin").is(":checked")) {
+                    return false;
+                }
+                return true;
+            }
+            if(card == $("#c5")){
+                if (q5_response == "") {
+                    return false;
+                }
+                return true;
+            }
+            if(card == $("#c6")){
+                if (q6_response == "") {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        $("#submitButton").on("click", function() {
+
+            $("#validSubmission").html("");
+            $("#congrats").html("");
+            let score = 0;
+            
+            // Set response values here?
+
+            //
+            if ( !isFormValid(activeCard1) || !isFormValid(activeCard2) ) { //isFormValid == false
+                $("#validSubmission").html("A question has not been answered.");
+                return;
+            }
+            activeCard1.css("display", "none");
+            activeCard2.css("display", "none");
+            if( isCorrect(activeCard1) ){
+                score++;
+                activeCard1 = displayQueue.dequeue();
+            } else {
+                displayQueue.enqueue(activeCard1);
+                activeCard1 = displayQueue.dequeue();
+                
+            }
+            if( isCorrect(activeCard2) ){
+                score++;
+                activeCard2 = displayQueue.dequeue();
+            } else {
+                displayQueue.enqueue(activeCard2);
+                activeCard2 = displayQueue.dequeue();
+            }
+            activeCard1.css("display", "block");
+            activeCard2.css("display", "block");
+/*
+            let total_points = 0;
+*/
+            q1_response = $("#q1").val().toLowerCase();
+            q2_response = $("#q2").val();
+            q3_response = $("input[name=q3]:checked").val();
+            /*
+            // Handle all this inside of isCorrect() ...
+            //Question 1
+            if (q1_response == q1_answer) {
+                $("#q1_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg1").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q1_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q1_feedback").html("Incorrect!");
+                $("#markImg1").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q1_feedback").attr("class", "incorrect");
+            }
+
+            //Question 2
+            if (q2_response == q2_answer) {
+                $("#q2_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg2").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q2_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q2_feedback").html("Incorrect!");
+                $("#markImg2").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q2_feedback").attr("class", "incorrect");
+            }
+
+            //Question 3
+            if (q3_response == q3_answer) {
+                $("#q3_feedback").html("Correct!");
+                total_points += pointValue;
+                $("#markImg3").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q3_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q3_feedback").html("Incorrect!");
+                $("#markImg3").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q3_feedback").attr("class", "incorrect");
+            }
+
+            //Question 4
+            if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
+                $("#q4_feedback").html("Correct");
+                total_points += pointValue;
+                $("#markImg4").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q4_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q4_feedback").html("Incorrect");
+                $("#markImg4").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q4_feedback").attr("class", "incorrect");
+            }
+
+            //Question 5
+            if (q5_response == q5_answer) {
+                $("#q5_feedback").html("Correct");
+                total_points += pointValue;
+                $("#markImg5").html("<img src ='img/checkmark.png' alt='checkmark'>");
+                $("#q5_feedback").attr("class", "correct");
+            }
+            else {
+                $("#q5_feedback").html("Incorrect");
+                $("#markImg5").html("<img src ='img/xmark.png' alt='xmark'>");
+                $("#q5_feedback").attr("class", "incorrect");
+            }
+            */
+
+            // Not sure what to do with this stuff
+            //Totals    
+            $("#total").html("The total Score is: " + total_points);
+            if (total_points == 100) {
+                $("#congrats").html("Congratulations! You got 100%!");
+            }
+            totalTimes++;
+            localStorage.setItem("totalTimesTaken", totalTimes);
+            $("#totalTimes").html("Quiz taken: " + totalTimes + " time(s)");
+            scoresArray.push(total_points);
+            $("#prevScores").html("Score History: ");
+            scoresArray.forEach(function(score) {
+                $("#prevScores").append(score + " ");
+            });
+
+            localStorage.setItem("scoreHistory", scoresArray);
+
+        });
+    </script>
+</body>
+
+</html>
