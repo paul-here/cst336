@@ -1,6 +1,24 @@
+body {
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    margin: 40px auto;
+}
+
+
 .card {
-    
-    width: 60%;
-    height: 140px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-style: inset;
+    width: 950px;
+    height: 160px;
     display: none;
+}
+
+.fb {
+    color: red;
+    font-style: italic;
+    height: 20px;
 }
