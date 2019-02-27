@@ -131,6 +131,9 @@
         });
 
         function isCorrect(card) {
+            if(card == null){
+                return false;
+            }
             if (card.is($("#c1"))) {
                 // alert("1: " + q1_response + "\n" + "2: " + q1_answer);
                 if (q1_response == q1_answer) {
@@ -187,6 +190,9 @@
         }
 
         function isFormValid(card) {
+            if(card == null){
+                return false;
+            }
             if (card.is($("#c1"))) {
                 if ($("#q1").val() == "") {
                     return false;
@@ -256,11 +262,11 @@
             q6_response = $("#q6").val();
 
             // Inorder form validation
-            if (!isFormValid(activeCard1)) { //isFormValid == false
+            if (activeCard1 != null && !isFormValid(activeCard1)) { //isFormValid == false
                 $("#validSubmission").html("Question 1 has not been answered.");
                 return;
             }
-            if (!isFormValid(activeCard2)) { //isFormValid == false
+            if (activeCard2 != null && !isFormValid(activeCard2)) { //isFormValid == false
                 $("#validSubmission").html("Question 2 has not been answered.");
                 return;
             }
