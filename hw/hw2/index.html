@@ -63,13 +63,13 @@
         <div id="q6_feedback" class="fb"></div>
         <br>
     </div>
-    <h2 id="total"></h2>
-    <h2 id="validSubmission"></h2>
-    <h2 id="congrats" class="correct"></h2>
-    <button id="submitButton" class="btn btn-light"> Submit </button>
-    <h2 id="totalTimes"></h2>
-
-
+    <div id="results">
+        <h2 id="total"></h2>
+        <h2 id="validSubmission"></h2>
+        <h2 id="congrats" class="correct"></h2>
+        <button id="submitButton" class="btn btn-light"> Submit </button>
+        <h2 id="totalTimes"></h2>
+    </div>
     <script>
         /* global $ */
         /* global localStorage */
@@ -128,7 +128,6 @@
         $(document).ready(function() {
             activeCard1.css("display", "block");
             activeCard2.css("display", "block");
-
         });
 
         function isCorrect(card) {
