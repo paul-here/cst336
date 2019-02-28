@@ -1,0 +1,35 @@
+body {
+    justify-content: center;
+    text-align: center;
+    line-height: 140%;
+}
+
+h1 {
+    margin: 20px auto;
+    padding: 40px 40px;
+}
+
+input {
+    margin: 5px;
+    padding: 0px 4px;
+}
+
+select {
+    margin: 5px;
+    padding: 0px 4px;
+}
+
+.card {
+    margin: 0 auto;
+    width: 400px;
+    text-align: right;
+}
+
+#middle {
+    text-align: left;
+    padding-left: 169px;
+}
+
+#zipspan {
+    color: red;
+}
