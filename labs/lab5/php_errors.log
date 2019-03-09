@@ -1,0 +1,1 @@
+[06-Mar-2019 00:54:29 UTC] PHP Parse error:  syntax error, unexpected '$data' (T_VARIABLE) in /home/ubuntu/workspace/cst336/labs/lab5/api/strongPwdAPI.php on line 25
