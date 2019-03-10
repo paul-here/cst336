@@ -1,0 +1,17 @@
+body {
+    justify-content: center;
+    text-align: center;
+    line-height: 140%;
+}
+
+legend {
+    margin: 20px auto;
+    padding: 40px 40px;
+    background-color: #ebdbff;
+}
+
+input {
+    margin: 5px;
+    padding: 0px 4px;
+}
+
