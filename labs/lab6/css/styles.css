@@ -33,3 +33,11 @@ select {
 #zipspan {
     color: red;
 }
+
+.row { 
+    display: flex;
+}
+        
+.col1 { 
+    width: 250px;
+}

@@ -17,5 +17,4 @@ $sql = "SELECT * FROM om_product ORDER BY productPrice LIMIT 10";
 $stmt = $dbConn -> prepare($sql);
 $stmt -> execute();
 
-
 ?>
