@@ -23,7 +23,6 @@ $password = str_shuffle($password); //shuffles the letters of the password
 //echo $password;
 
 
-
 $data = array();
 $data["suggestedPwd"] = $password;
 
