@@ -36,7 +36,7 @@
 
         <h3 id="productDescription"></h3>
 
-        <img src="" id="productImage" width="200"/>
+        <img src="" id="productImage" alt="image of described product" width="200"/>
         
         <div id="productPrice"></div>
 
