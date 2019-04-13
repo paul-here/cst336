@@ -35,8 +35,6 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC); //we are expecting ONLY one record, so
     
     $_SESSION['adminName'] = $record['firstName'] . " " . $record['lastName'];
     header('location: admin.php'); //redirecting to a new file
-    
-    
 
 }
 

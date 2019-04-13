@@ -49,7 +49,7 @@ if (!isset($_SESSION['adminName'])) {
                                                 "<a target='productIframe' onclick='openModal()' href='productInfo.php?productId="+product.productId+"'> " + product.productName + "</a></div>"+
                                                 "<div class='col2'>"+"$" + product.productPrice + "</div>"+
                                                 "</div><br>");
-                      })
+                      }); // forEach
                     },
                     complete: function(data,status) { //optional, used for debugging purposes
                     //alert(status);
