@@ -1,0 +1,30 @@
+body {
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+input {
+    margin: 5px;
+    padding: 0px 4px;
+}
+
+
+.row  { 
+    display:flex;
+}
+        
+.col1 { 
+    width:400px;
+}
+            
+form { 
+    display: inline-block;
+}
+            
+#products {
+    display: inline-block;
+    width: 450px;
+    justify-content:flex-start;
+    text-align: left;
+}

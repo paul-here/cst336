@@ -34,7 +34,6 @@
                          $("#catId").val(data["catId"]).change();
                     }
                 });
-                
             }    
                 
                 $(document).ready(function(){  
@@ -61,12 +60,15 @@
                         $("#updated").html("Product Updated");
                     });
                     
+                        $("#returnButton").on("click",function(){
+                            window.location.href = 'admin.php';
+                        });
+                    
                 });//documentReady
                 
                 </script>
-        
-        
     </head>
+    
     <body>
     <h1> Update Product</h1>
     Enter Product Name:<input type="text" id = "productName" size="50">
@@ -81,15 +83,13 @@
     <Option> Select One </Option>
     </Select><br>
     
-    <button id="submitButton">Update Product</button>
+    <button id="submitButton" class="btn btn-primary">Update Product</button>
     
     <span id="updated"></span>
     
+    <br>
     
-    
-    
-    
-    
+    <button id="returnButton" class="btn btn-primary">Return</button>
     
     </body>
 </html>

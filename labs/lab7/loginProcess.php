@@ -25,8 +25,11 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC); //we are expecting ONLY one record, so
  
  if (empty($record)) {
      
-     echo "Username or Password are incorrect!";
-     
+     echo "
+           <script>
+               alert(\"Username or Password are incorrect!\");
+               window.location.href = 'login.html'; 
+           </script>";
      
  }  else {
  

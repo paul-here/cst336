@@ -33,6 +33,8 @@ if (!isset($_SESSION['adminName'])) {
         
         <button id="submitButton">Add Product</button>
         <span id="totalProducts"></span>
+        <br>
+        <button id="returnButton">Return</button>
     </body>
     
     <script>
@@ -67,5 +69,10 @@ if (!isset($_SESSION['adminName'])) {
                     }
                 }); 
         });
+        
+        $("#returnButton").on("click",function(){
+            window.location.href = 'admin.php';
+        });
+        
     </script>
 </html>
