@@ -11,7 +11,7 @@ $namedParameters = array();
 //This query works BUT it allows SQL INJECTION (because it's using single quotes)
 //$sql = "SELECT * FROM `om_product` WHERE productName LIKE '%$product%'";
 
-$sql = "SELECT * FROM `om_product` WHERE 1"; //Retrieves ALL records
+$sql = "SELECT * FROM `om_product` WHERE 1";  //Retrieves ALL records
 
 if (!empty($product)) { //user entered a product keyword
     $sql .=  " AND productName LIKE :product";
