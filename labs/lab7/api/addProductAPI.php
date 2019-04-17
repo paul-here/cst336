@@ -1,6 +1,6 @@
 <?php
 
-    include '../../../inc/dbConnection.php';
+    include '../../../inc/finalConnection.php';
     $conn = getDatabaseConnection("ottermart");
     
     $arr = array();

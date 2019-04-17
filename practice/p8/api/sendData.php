@@ -15,6 +15,7 @@ $email = $_SESSION["email"];
 $zip = $_SESSION["zip"];
 
 // TODO: Execute SQL to add a row to database table
+// This doesn't work, and I don't know why.
 $sql = "INSERT INTO `users` (`name`, `major`, `email`, `zip`) VALUES ($name, $major, $email, $zip)";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

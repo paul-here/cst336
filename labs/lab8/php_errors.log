@@ -1,0 +1,33 @@
+[17-Apr-2019 00:01:26 UTC] PHP Warning:  Illegal string offset 'webformatURL' in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 21
+[17-Apr-2019 00:01:26 UTC] PHP Stack trace:
+[17-Apr-2019 00:01:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:04:07 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 23
+[17-Apr-2019 00:04:07 UTC] PHP Stack trace:
+[17-Apr-2019 00:04:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:05:02 UTC] PHP Fatal error:  Call to undefined function type() in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 24
+[17-Apr-2019 00:05:02 UTC] PHP Stack trace:
+[17-Apr-2019 00:05:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:08:22 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 24
+[17-Apr-2019 00:08:22 UTC] PHP Stack trace:
+[17-Apr-2019 00:08:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:08:43 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 24
+[17-Apr-2019 00:08:43 UTC] PHP Stack trace:
+[17-Apr-2019 00:08:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:08:54 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 24
+[17-Apr-2019 00:08:54 UTC] PHP Stack trace:
+[17-Apr-2019 00:08:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:09:14 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 24
+[17-Apr-2019 00:09:14 UTC] PHP Stack trace:
+[17-Apr-2019 00:09:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:18:19 UTC] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 26
+[17-Apr-2019 00:18:19 UTC] PHP Stack trace:
+[17-Apr-2019 00:18:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:18:31 UTC] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 26
+[17-Apr-2019 00:18:31 UTC] PHP Stack trace:
+[17-Apr-2019 00:18:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:19:20 UTC] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 26
+[17-Apr-2019 00:19:20 UTC] PHP Stack trace:
+[17-Apr-2019 00:19:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[17-Apr-2019 00:19:49 UTC] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 26
+[17-Apr-2019 00:19:49 UTC] PHP Stack trace:
+[17-Apr-2019 00:19:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
