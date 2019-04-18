@@ -1,0 +1,1 @@
+[18-Apr-2019 03:31:04 UTC] PHP Parse error:  syntax error, unexpected '$curl' (T_VARIABLE), expecting ',' or ';' in /home/ubuntu/workspace/cst336/hw/hw4/api/unsplashProxy.php on line 7
