@@ -29,7 +29,6 @@
                 data: { "q": $("#keyword").val() },
                 success: function(data, status) {
                     
-                    $("#image").html("<img src='' id='results' alt='' />");
                     $("#results").attr("src", data[0]);
                     $("#results").attr("alt", data[1]);
                     attribute(data[2], data[3]);
@@ -76,7 +75,7 @@
         <br /><br />
 
         <div id="image">
-            
+            <img src="null" id="results" alt="Please search for an image with a single keyword." />
         </div>
 
         <div id="attribution"></div>
