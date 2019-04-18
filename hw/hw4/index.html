@@ -29,7 +29,7 @@
                 data: { "q": $("#keyword").val() },
                 success: function(data, status) {
                     
-                    $("#image").html("<img src="" id="results" alt="" />");
+                    $("#image").html("<img src='' id='results' alt='' />");
                     $("#results").attr("src", data[0]);
                     $("#results").attr("alt", data[1]);
                     attribute(data[2], data[3]);
