@@ -2,25 +2,13 @@
 <html>
 
 <head>
-    <title> Pixabay API Demo </title>
+    <meta charset="utf-8" />
+    <title> Unsplash API Demo </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-        body {
-            text-align: center;
-        }
-
-        img {
-            border-radius: 20px;
-            padding: 15px;
-        }
-
-        .favorite {
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
     <script>
         /* global $ */
-
 
         function attribute(link, name) {
 
@@ -31,6 +19,7 @@
                 "</a> on <a href='https://unsplash.com/?utm_source=your_app_name&utm_medium=referral'>Unsplash</a>");
         }
 
+
         function searchImage() {
 
             $.ajax({
@@ -39,30 +28,63 @@
                 dataType: "json",
                 data: { "q": $("#keyword").val() },
                 success: function(data, status) {
-                    
+
                     $("#results").attr("src", data[0]);
                     $("#results").attr("alt", data[1]);
                     attribute(data[2], data[3]);
+
+                    updateDB(data[3]);
                 }
             }); // ajax 
 
         } // searchImage()
+
+
+        function updateDB(name) {
+            $.ajax({
+                method: "GET",
+                url: "api/postSearch.php",
+                dataType: "json",
+                data: { "name": name },
+                success: function(data, status) {
+
+                    $("#history").prepend("Photographer " +
+                        data['name'] + " has appeared " +
+                        data['frequency'] +
+                        " time(s).<br>");
+                }
+            }); // ajax 
+        }
+
+        $(document).ready(function() {
+
+            $("#clearBtn").on("click", function() {
+
+                $("#history").html("");
+            }); // clear button
+
+        }); // dom
     </script>
 </head>
 
 <body>
+    <main>
+        <h1> Unsplash Image Search </h1>
+        Keyword: <input type="text" id="keyword" />
+        <button onclick="searchImage()" class="btn btn-primary btn-sm"> Search </button>
+        <br /><br />
 
-    <h1> Unsplash Image Search </h1>
-    Keyword: <input type="text" id="keyword" />
-    <button onclick="searchImage()"> Search </button>
-    <br /><br />
+        <div id="image">
+            <img src="" id="results" alt="" />
+        </div>
 
-    <div id="image">
-        <img src="" id="results" alt=""/>
-    </div>
+        <div id="attribution"></div>
+        <br>
+        <button id="clearBtn" class="btn btn-primary btn-sm"> Clear History </button>
+        <br>
+        <div id="history"></div>
 
-    <div id="attribution"></div>
-
+    </main>
 </body>
 
 </html>
