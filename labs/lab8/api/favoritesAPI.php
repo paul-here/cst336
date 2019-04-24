@@ -14,8 +14,6 @@ $keyword = $_POST['keyword'];
 
 $arr = array();
 
-    
-
   switch ($action) {
       
       case "add":
@@ -23,21 +21,32 @@ $arr = array();
         $arr[":imageURL"] = $url;
         $sql = "INSERT INTO `lab8_pixabay` ( `imageURL`, `keyword`) 
                 VALUES (:imageURL, :keyword)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($arr);
                  break;
 
       case "delete":
         $arr[":imageURL"] = $url;
         $sql = "DELETE FROM `lab8_pixabay` WHERE `lab8_pixabay`.`imageURL` = :imageURL";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($arr);
                  break;
-      case "favorites":
+                 
+      case "keyword":
         $sql = "SELECT DISTINCT `keyword` FROM `lab8_pixabay` ORDER BY `keyword`";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
                  break;
+                 
+      case "favorites":
+        $arr[":keyword"] = $keyword;
+        $sql = "SELECT * FROM `lab8_pixabay` WHERE `lab8_pixabay`.`imageURL` = :keyword";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($arr);
+                 
       default:
                  break;
   }//switch
-  
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
   
   $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($records);
