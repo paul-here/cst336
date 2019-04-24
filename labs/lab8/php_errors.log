@@ -31,3 +31,86 @@
 [17-Apr-2019 00:19:49 UTC] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php on line 26
 [17-Apr-2019 00:19:49 UTC] PHP Stack trace:
 [17-Apr-2019 00:19:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/pixabayProxy.php:0
+[19-Apr-2019 00:36:02 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1044] Access denied for user 'bf9749165752e5'@'%' to database 'c9'' in /home/ubuntu/workspace/cst336/inc/finalConnection.php:24
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/inc/finalConnection.php(24): PDO->__construct('mysql:host=us-c...', 'bf9749165752e5', 'd31bd484')
+#1 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(5): getDatabaseConnection('c9')
+#2 {main}
+  thrown in /home/ubuntu/workspace/cst336/inc/finalConnection.php on line 24
+[19-Apr-2019 00:36:19 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1044] Access denied for user 'bf9749165752e5'@'%' to database 'c9'' in /home/ubuntu/workspace/cst336/inc/finalConnection.php:24
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/inc/finalConnection.php(24): PDO->__construct('mysql:host=us-c...', 'bf9749165752e5', 'd31bd484')
+#1 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(5): getDatabaseConnection('c9')
+#2 {main}
+  thrown in /home/ubuntu/workspace/cst336/inc/finalConnection.php on line 24
+[19-Apr-2019 00:38:14 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1044] Access denied for user 'bf9749165752e5'@'%' to database 'c9'' in /home/ubuntu/workspace/cst336/inc/finalConnection.php:24
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/inc/finalConnection.php(24): PDO->__construct('mysql:host=us-c...', 'bf9749165752e5', 'd31bd484')
+#1 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(5): getDatabaseConnection('c9')
+#2 {main}
+  thrown in /home/ubuntu/workspace/cst336/inc/finalConnection.php on line 24
+[19-Apr-2019 00:43:39 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:26
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(26): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 26
+[19-Apr-2019 00:46:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:34
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(34): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 34
+[19-Apr-2019 00:49:27 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 00:51:30 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 00:54:21 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 01:51:13 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 01:54:27 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 01:55:09 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'keyword' cannot be null' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 02:00:22 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:36
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(36): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 36
+[19-Apr-2019 02:05:37 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `lab8_pixabay`.`keyword`' at line 1' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:39
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(39): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 39
+[19-Apr-2019 02:05:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `lab8_pixabay`.`keyword`' at line 1' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:39
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(39): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 39
+[19-Apr-2019 02:05:42 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `lab8_pixabay`.`keyword`' at line 1' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:39
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(39): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 39
+[19-Apr-2019 02:05:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `lab8_pixabay`.`keyword`' at line 1' in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php:39
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php(39): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/labs/lab8/api/favoritesAPI.php on line 39

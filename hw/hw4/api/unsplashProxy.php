@@ -1,10 +1,11 @@
 <?php
     
     $keyword = $_GET['q'];
+    $api_key = getenv(UNSPLASH_API_KEY);
     
     $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.unsplash.com/search/photos/?client_id=8be25c82bd945171ae42021d857679273cdeddd23f48356b2eb77002d5dd26ff&query=$keyword",
+        CURLOPT_URL => "https://api.unsplash.com/search/photos/?client_id=$api_key&query=$keyword",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

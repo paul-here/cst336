@@ -20,7 +20,7 @@
     </style>
     <script>
         /* global $ */
-        
+
         function searchImage() {
 
             $("#images").html("Loading...");
@@ -59,36 +59,41 @@
 
 
         $(document).ready(function() {
-            
-            
-            alert("waaaaaaa!!!");
-            
+
             $("#images").on("click", ".favorite", function() {
-                
-                alert("at least this...");
+
                 //alert($(this).next().attr("src"));
 
                 if ($(this).attr("src") == "img/favorite.png") {
 
-                    alert("hey, dirty -- clicking works!");
                     $(this).attr("src", "img/favorite_on.png");
                     //add image url to database
-                    //callFavoriteAPI("add", $(this).next().attr("src"));
+                    callFavoriteAPI("add", $(this).next().attr("src"), $("#keyword").val());
                 }
                 else {
 
                     $(this).attr("src", "img/favorite.png");
                     //remove image url from database
-                    //callFavoriteAPI("delete", $(this).next().attr("src"));
+                    callFavoriteAPI("delete", $(this).next().attr("src"), $("#keyword").val());
 
                 }
 
             });
 
             function callFavoriteAPI(action, url, keyword) {
-                alert("callFavoriteAPI");
-            }
 
+                $.ajax({
+                    method: "POST", // should this be post?
+                    url: "api/favoritesAPI.php",
+                    dataType: "json",
+                    data: { "action": action, "url": url, "keyword": keyword },
+                    success: function(data, status) {
+                        //alert("success");
+
+                    }
+                }); //ajax 
+
+            }
 
         }); //documentReady
     </script>
@@ -102,6 +107,11 @@
     <br /><br />
 
     <div id="images"></div>
+
+    <form action="viewFavorites.php">
+        <button> View Favorites </button>
+    </form>
+
 
 </body>
 
