@@ -3,9 +3,9 @@
 include '../../../inc/dbConnection.php';
 $conn = getDatabaseConnection("c9");
 //receives these parameters: action, url, keyword
-$action = $_POST['action'];
-$url = $_POST['url'];
-$keyword = $_POST['keyword'];
+$action = $_GET['action'];
+$url = $_GET['url'];
+$keyword = $_GET['keyword'];
 
 //TO GET THE 2 EXTRA POINTS IN THE HANDS-ON PORTION OF THE FINAL EXAM
 //1. Add favorites to database
@@ -14,7 +14,7 @@ $keyword = $_POST['keyword'];
 
 $arr = array();
 
-  switch ($action) {
+switch ($action) {
       
       case "add":
         $arr[":keyword"] = $keyword;
@@ -40,13 +40,14 @@ $arr = array();
                  
       case "favorites":
         $arr[":keyword"] = $keyword;
-        $sql = "SELECT * FROM `lab8_pixabay` WHERE `lab8_pixabay`.`imageURL` = :keyword";
+        $sql = "SELECT `imageURL` FROM `lab8_pixabay` WHERE `lab8_pixabay`.`keyword` = :keyword";
         $stmt = $conn->prepare($sql);
         $stmt->execute($arr);
+                 break;
                  
       default:
                  break;
-  }//switch
+  } // switch
   
   $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($records);
