@@ -27,7 +27,7 @@
                     success: function(data, status) {
                         
                         let htmlString = "";
-                        let newRow = 0
+                        let newRow = 0;
                         $("#images").html("");
                         data.forEach(function(ele){
                             
@@ -64,7 +64,7 @@
                         data.forEach(function(ele){
                             newRow++;
                             $("#links").append(createActionButton(ele['keyword']));
-                            if(newRow > 7){
+                            if(newRow > 6){
                                 $("#links").append("<br>");    
                                 newRow = 0;
                             }
@@ -85,7 +85,6 @@
                     $(this).attr("src", "img/favorite.png");
                     //remove image url from database
                     callFavoriteAPI("delete", $(this).next().attr("src"), $("#keyword").val());
-
                 }
                 
                 function callFavoriteAPI(action, url, keyword) {
@@ -111,7 +110,7 @@
         <br>
         <div id="links"></div>
         <div id="images"></div>
-        <br>
+        <br><br>
         <form action="index.html">
             <button> Return </button>
         </form>
