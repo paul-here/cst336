@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
         <script>
         /* global $ */
-        
         function createActionButton(keyword){
             
             let htmlStr = "<button onclick='displayFavorites(this.innerHTML)'>";

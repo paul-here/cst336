@@ -9,8 +9,8 @@ img {
     padding: 15px;
 }
 
-.favorite {
-    cursor: pointer;
+img:hover {
+    width: 250px;
 }
 
 button {
