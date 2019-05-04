@@ -39,7 +39,7 @@
 
     </head>
     <body>
-        <h1>Lab 9: File Upload</h1></h1>
+        <h1>Lab 9: File Upload</h1>
         
         <br>
         <form  method="POST" enctype="multipart/form-data">
